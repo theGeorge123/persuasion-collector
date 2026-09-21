@@ -3,7 +3,7 @@ local Players = game:GetService("Players")
 local Shared = ReplicatedStorage:WaitForChild("CollectorShared")
 local Config = require(Shared.Config)
 local Characters = require(Shared.Characters)
-local Rules = require(Shared.PersuasionRules)
+local Rules = require(Shared.PersuasionRules2)
 
 assert(not Config.PersistenceEnabled and not Config.MonetizationEnabled and not Config.FreeTextEnabled and not Config.RewriteEnabled)
 local folder = Instance.new("Folder"); folder.Name = "PersuasionCollectorRemotes"; folder.Parent = ReplicatedStorage

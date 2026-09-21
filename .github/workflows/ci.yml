@@ -1,0 +1,14 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate JSON and isolation
+        run: |
+          python3 -m json.tool collector.project.json >/dev/null
+          ! grep -R "BeatTheBotRemotes\|BeatTheBot_Profiles\|default.project.json\|debate.project.json" src collector.project.json
+      - name: Scope guard
+        run: |
+          ! grep -R "MarketplaceService\|DataStoreService\|HttpService\|TextBox" src
